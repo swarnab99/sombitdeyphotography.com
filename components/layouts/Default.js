@@ -8,7 +8,10 @@ const DefaultLayout = ({ children }) => {
 			<Header />
 			<div className='main'>{children}</div>
 			<Footer />
-			<WhatsappButton number='+919830343620' text='Hi, Frame Maker' />
+			<WhatsappButton
+				number='+917003793551'
+				text='Hi, Sombit Dey Photography'
+			/>
 		</main>
 	);
 };
