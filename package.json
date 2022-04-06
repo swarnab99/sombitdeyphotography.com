@@ -1,20 +1,35 @@
 {
-  "name": "sitenew",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.1.4",
-    "react": "18.0.0",
-    "react-dom": "18.0.0"
-  },
-  "devDependencies": {
-    "eslint": "8.12.0",
-    "eslint-config-next": "12.1.4"
-  }
+	"name": "sombitdeyphotography",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@prismicio/client": "^5.1.1",
+		"airtable": "^0.11.3",
+		"apollo-cache-inmemory": "^1.6.6",
+		"apollo-client": "^2.6.10",
+		"apollo-link-prismic": "^1.1.1",
+		"countapi-js": "^1.0.2",
+		"dayjs": "^1.11.0",
+		"fslightbox-react": "^1.6.2-2",
+		"graphql": "^15.8.0",
+		"graphql-tag": "^2.12.6",
+		"lozad": "^1.16.0",
+		"next": "12.1.4",
+		"next-seo": "^5.3.0",
+		"nprogress": "^0.2.0",
+		"prismic-reactjs": "^1.3.4",
+		"react": "18.0.0",
+		"react-dom": "18.0.0",
+		"react-icons": "^4.3.1"
+	},
+	"devDependencies": {
+		"eslint": "8.12.0",
+		"eslint-config-next": "12.1.4"
+	}
 }
