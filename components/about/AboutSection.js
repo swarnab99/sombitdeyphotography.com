@@ -1,49 +1,38 @@
 /* eslint-disable @next/next/no-img-element */
+import { RichText } from 'prismic-reactjs';
+import { CustomLink, DocLink } from '../../utils/prismicHelpers';
 
-const AboutSection = () => {
+const AboutSection = ({ slice }) => {
+	// console.log(slice);
+	const { subheading, heading, description, image, button_text, button_link } =
+		slice?.primary;
 	return (
 		<div className='section-banner'>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-12 text-center'>
-						{' '}
-						<span className='dorothea-heading-meta'>Welcome</span>
-						<h2 className='dorothea-heading'>About Me</h2>{' '}
+						<span className='dorothea-heading-meta'>{subheading[0]?.text}</span>
+						<h2 className='dorothea-heading'>{heading[0]?.text}</h2>
 					</div>
 				</div>
 				<div className='row'>
 					<div className='col-md-12'>
-						{' '}
 						<img
-							src='/images/_SDP0335-copy.jpeg'
+							src={image?.url}
 							className='img-fluid mb-30'
-							alt='dorothea'
-						/>{' '}
+							alt={image?.alt}
+						/>
 					</div>
 				</div>
 				<div className='row'>
 					<div className='col-md-12'>
-						{' '}
-						<span className='dorothea-heading-meta'>Creative Photographer</span>
-						<h2>About Sombit Dey Photography</h2>
-						<p>
-							Quisque bibendum tincidunt varius. Vestibulum viverra bibendum
-							magna, mattis gravida sapien tincidunt ut. Donec felis nunc,
-							dapibus quis facilisis quis, placerat vitae massa. Curabitur
-							consectetu mi tellus in dignissim nibh maximus tempus. Cras vel
-							metus nec eros laoreet ullamcorper sed sit amet lectus.
-						</p>
-						<p>
-							Quisque bibendum tincidunt varius. Vestibulum viverra bibendum
-							magna, mattis gravida sapien tincidunt ut. Photo felis nunc,
-							dapibus quis facilisis quis placerat vitae massa. Curabitur
-							consectetur mi tellus in dignissim nibh maximus tempus. Cras vel
-							metus nec eros laoreet ullamcorper sed sit amet lectus.{' '}
-						</p>{' '}
 						<div>
-							<a href='#' className='btn button'>
-								Contact Me
-							</a>
+							<RichText render={description} serializeHyperlink={CustomLink} />
+						</div>
+						<div>
+							<DocLink link={button_link} linkClass='btn button'>
+								<span className='icon'></span> {button_text[0]?.text}
+							</DocLink>
 						</div>
 					</div>
 				</div>

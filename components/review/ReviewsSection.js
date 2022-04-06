@@ -1,13 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
+import { RichText } from 'prismic-reactjs';
 
-const ReviewsSection = () => {
+const ReviewsSection = ({ slice }) => {
+	// console.log(slice);
+	const { heading, subheading } = slice.primary;
 	return (
 		<div className='section-banner'>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-12 text-center'>
-						<span className='dorothea-heading-meta'>Reviews</span>
-						<h3 className='dorothea-post-heading'>Feedback</h3>
+						<span className='dorothea-heading-meta'>{subheading[0]?.text}</span>
+						<h3 className='dorothea-post-heading'>{heading[0]?.text}</h3>
 					</div>
 				</div>
 				<div className='row'>
@@ -15,11 +18,9 @@ const ReviewsSection = () => {
 						<div className='clear' id='comment-list'>
 							<div className='comments-area' id='comments'>
 								<ol className='comment-list'>
-									<ReviewItem />
-									<ReviewItem />
-									<ReviewItem />
-									<ReviewItem />
-									<ReviewItem />
+									{slice.items.map((item, index) => (
+										<ReviewItem key={index} data={item} />
+									))}
 								</ol>
 							</div>
 						</div>
@@ -30,21 +31,16 @@ const ReviewsSection = () => {
 	);
 };
 
-const ReviewItem = () => {
+const ReviewItem = ({ data }) => {
+	const { title, image, details } = data;
 	return (
 		<li className='comment'>
 			<div className='comment-body'>
 				<div className='comment-author vcard'>
-					<img className='avatar photo' src='/images/feedback/1.jpg' alt='' />
-					<h3 className='name mb-2'>Eleanor & Stefano</h3>
+					<img className='avatar photo' src={image?.url} alt={image?.alt} />
+					<h3 className='name mb-2'>{title[0]?.text}</h3>
 				</div>
-				<p>
-					Dorothea non lorem ac erat suscipit bibendum. Nulla facilisi. Sedeuter
-					nunc volutpa mollis sapien veli, conseyer turpeutionyer massa in libe
-					semper sedeuter nunc volutpat the sapien veletion. Quisque gravida
-					eros ut turpis interdum ornare. Interdum et malesu they adamale fames
-					ac ante ipsum primis in faucibus. Curabitur arcu erosite feugia.
-				</p>
+				<RichText render={details} />
 			</div>
 		</li>
 	);

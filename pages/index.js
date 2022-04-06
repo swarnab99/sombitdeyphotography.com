@@ -9,7 +9,7 @@ import SEO from '../components/seo/SEO';
 import BlogsSection from '../components/blog/BlogsSection';
 
 const IndexPage = ({ doc, blogPosts }) => {
-	console.log(doc);
+	// console.log(doc);
 	// ========== LOZAD INSTANTIATE ==========
 	useEffect(() => {
 		const observer = lozad('.lozad', {
@@ -21,7 +21,7 @@ const IndexPage = ({ doc, blogPosts }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://theweddart.com' />
+			<SEO doc={doc} url='https://sombitdeyphotography.com' />
 			<SliceZone sliceZone={doc.data.body} />
 			<BlogsSection blogPosts={blogPosts} />
 		</>

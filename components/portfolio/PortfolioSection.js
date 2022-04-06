@@ -1,43 +1,41 @@
 /* eslint-disable @next/next/no-img-element */
+import { DocLink } from '../../utils/prismicHelpers';
 
-const PortfolioSection = () => {
+const PortfolioSection = ({ slice }) => {
+	// console.log(slice);
+	const { heading, subheading } = slice.primary;
 	return (
 		<div className='section-padding'>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-12 text-center'>
-						<span className='dorothea-heading-meta'>View Our</span>
-						<h2 className='dorothea-heading'>Events Portfolio</h2>
+						<span className='dorothea-heading-meta'>{subheading[0]?.text}</span>
+						<h2 className='dorothea-heading'>{heading[0]?.text}</h2>
 					</div>
 				</div>
 				<div className='row'>
-					<PortfolioItem />
-					<PortfolioItem />
-					<PortfolioItem />
-					<PortfolioItem />
+					{slice?.items?.map((item, index) => (
+						<PortfolioItem key={index} data={item} />
+					))}
 				</div>
 			</div>
 		</div>
 	);
 };
 
-const PortfolioItem = () => {
+const PortfolioItem = ({ data }) => {
+	const { image, link, title1, category } = data;
 	return (
 		<div className='col-md-6'>
-			<div className='dorothea-team'>
-				<img
-					src='https://images.prismic.io/sombitdeyphotography/42ccb5be-abdf-494b-8cae-e037cf19e308__SDP1144-2-copy.jpg?auto=compress,format'
-					className='img-fluid'
-					alt=''
-				/>
-				<div className='desc'>
-					<div className='con'>
-						<h5>
-							<a href='#0'>Engagement Shoot</a>
-						</h5>
-						<span>Wedding</span>
-						{/* ====== SHARE BUTTON ===== */}
-						{/* <p className='icon'>
+			<DocLink link={link}>
+				<div className='dorothea-team'>
+					<img src={image.url} className='img-fluid' alt={image.alt} />
+					<div className='desc'>
+						<div className='con'>
+							<h5>{title1[0]?.text}</h5>
+							<span>{category}</span>
+							{/* ====== SHARE BUTTON ===== */}
+							{/* <p className='icon'>
 
 							<span>
 								<a href='#0'>
@@ -55,9 +53,10 @@ const PortfolioItem = () => {
 								</a>
 							</span>
 						</p> */}
+						</div>
 					</div>
 				</div>
-			</div>
+			</DocLink>
 		</div>
 	);
 };

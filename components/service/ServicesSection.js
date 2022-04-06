@@ -1,34 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
+import { DocLink } from '../../utils/prismicHelpers';
 
-const ServicesSection = () => {
+const ServicesSection = ({ slice }) => {
+	// console.log(slice);
+	const { heading, subheading } = slice?.primary;
 	return (
 		<div id='services' className='section-padding services'>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-12 text-center'>
-						<span
-							className='dorothea-heading-meta animate-box'
-							data-animate-effect='fadeInUp'>
-							What I Do
-						</span>
-						<h2
-							className='dorothea-heading animate-box'
-							data-animate-effect='fadeInUp'>
-							My Services
-						</h2>
+						<span className='dorothea-heading-meta'>{subheading[0]?.text}</span>
+						<h2 className='dorothea-heading'>{heading[0]?.text}</h2>
 					</div>
 				</div>
 				<div className='row'>
-					<ServiceItem top={true} />
-					<ServiceItem />
-					<ServiceItem top={true} />
-					<ServiceItem />
+					{slice?.items?.map((item, index) => (
+						<ServiceItem key={index} data={item} />
+					))}
 				</div>
 				<div className='row'>
 					<div className='col-md-12 text-right'>
-						<a className='underline-text' href='services.html'>
-							All Services <i className='ti-arrow-right'></i>
-						</a>
+						{slice?.items?.length < 4 && (
+							<Link href='/services'>
+								<a className='underline-text'>
+									All Services <i className='ti-arrow-right'></i>
+								</a>
+							</Link>
+						)}
 					</div>
 				</div>
 			</div>
@@ -36,24 +35,24 @@ const ServicesSection = () => {
 	);
 };
 
-const ServiceItem = ({ top }) => {
+const ServiceItem = ({ top, data }) => {
+	const { title, image, link } = data;
 	return (
-		<div
-			className={`col-md-3 animate-box ${top ? 'mtop-60' : ''}`}
-			data-animate-effect='fadeInUp'>
+		<div className={`col-md-3 ${top ? 'mtop-60' : ''}`}>
 			<div className='item'>
 				<div className='position-re o-hidden'>
-					<img src='/images/_SDP1064-1-copy9.jpeg' alt='' />
+					<img src={image?.url} alt={image?.alt} />
 				</div>
 				<div className='con'>
 					<i className='ti-more'></i>
 					<h5>
-						<a href='services-post.html'>Wedding Photography</a>
+						<DocLink link={link}>{title[0]?.text}</DocLink>
 					</h5>
 					<div className='line'></div>
-					<a href='services-post.html'>
+
+					<DocLink link={link}>
 						<i className='ti-arrow-right'></i>
-					</a>
+					</DocLink>
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,6 @@
-const HeroSection = () => {
+const HeroSection = ({ slice }) => {
+	// console.log(slice);
+	const { heading, title, image, phone_number, email_id } = slice?.primary;
 	return (
 		<div id='home'>
 			<div className='dorothea-hero js-fullheight'>
@@ -7,7 +9,7 @@ const HeroSection = () => {
 						<li
 							className='bg-fixed'
 							style={{
-								backgroundImage: `url(/images/_SDP0031-1-copy.jpg)`,
+								backgroundImage: `url(${image?.url})`,
 							}}>
 							<div className='overlay'></div>
 							<div className='container'>
@@ -15,8 +17,8 @@ const HeroSection = () => {
 									<div className='col-md-12 js-fullheight slider-text'>
 										<div className='slider-text-inner'>
 											<div className='mx-auto frame-inner'>
-												<h2>Sombit Dey</h2>
-												<h6>Photography</h6>
+												<h2>{heading[0]?.text}</h2>
+												<h6>{title[0]?.text}</h6>
 												<span className='frame-1'></span>
 												<span className='frame-2'></span>
 											</div>
@@ -28,27 +30,35 @@ const HeroSection = () => {
 					</ul>
 				</div>
 				<div className='bottom-fade'></div>
-				<div className='container'>
+				<div className='container hero-bottom'>
 					<div className='row'>
 						<div className='col-md-12'>
 							<div className='number'>
-								<a href='tel:+16504440000'>
-									<span>+91 98305 70102</span>
-								</a>{' '}
+								<a href={`tel:${phone_number[0]?.text}`}>
+									<span>{phone_number[0]?.text}</span>
+								</a>
 							</div>
 							<div className='arrow bounce text-center'>
 								<a href='#services' className=''>
-									{' '}
-									<i className='ti-angle-double-down'></i>{' '}
+									<i className='ti-angle-double-down'></i>
 								</a>
 							</div>
 							<div className='right-bottom-text'>
-								<span>sombit.dey@gmail.com</span>
+								<a href={`mailto:${email_id[0]?.text}`}>
+									<span>{email_id[0]?.text}</span>
+								</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<style jsx>{`
+				.hero-bottom {
+					position: relative;
+					z-index: 99;
+				}
+			`}</style>
 		</div>
 	);
 };

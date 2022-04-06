@@ -1,6 +1,8 @@
 import Link from 'next/link';
 
-const SecondaryHeroSection = () => {
+const SecondaryHeroSection = ({ slice }) => {
+	// console.log(slice);
+	const { heading, background_image } = slice.primary;
 	return (
 		<div>
 			<div className='dorothea-hero js-fullheight'>
@@ -8,7 +10,7 @@ const SecondaryHeroSection = () => {
 					<div
 						className='bg-fixed'
 						style={{
-							backgroundImage: `url(/images/_SDP0031-1-copy.jpg)`,
+							backgroundImage: `url(${background_image.url})`,
 							backgroundSize: 'cover',
 						}}>
 						<div className='overlay '></div>
@@ -16,7 +18,7 @@ const SecondaryHeroSection = () => {
 							<div className='col-md-12 js-fullheight slider-text'>
 								<div className='slider-text-inner'>
 									<div className='mx-auto frame-inner'>
-										<h1 className='mb-0'>About Us</h1>
+										<h1 className=''>{heading[0]?.text}</h1>
 										<Link href='/'>
 											<a>
 												<h6>Home</h6>

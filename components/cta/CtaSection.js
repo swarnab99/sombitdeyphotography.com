@@ -1,26 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
+import { RichText } from 'prismic-reactjs';
+import { DocLink } from '../../utils/prismicHelpers';
 
-const CtaSection = () => {
+const CtaSection = ({ slice }) => {
+	// console.log(slice);
+	const { heading, description, image, button_text, button_link } =
+		slice?.primary;
+
 	return (
 		<div className='about-banner-section about'>
 			<div
 				className='background-image'
 				style={{
-					background: 'url(/images/_SDP1834-copy.jpg) center center',
+					background: `url(${image?.url}) center center`,
 					backgroundSize: 'cover',
 				}}></div>
 			<div className='bottom-fade'></div>
 			<div className='wrap-text'>
-				<h2>Have Questions?</h2>
-				<p>
-					I am a photographer and visual artist who specializes in conceptua
-					imagery and also photo manipulations. Vestibue in viverra bibendum
-					magna mattis avida sapien.
-				</p>
+				<RichText render={heading} />
+				<RichText render={description} />
 				<div className='col-md-12'>
-					<a href='#' className='btn button'>
-						Get a Quote
-					</a>
+					<DocLink linkClass='btn button' link={button_link}>
+						{button_text[0]?.text}
+					</DocLink>
 				</div>
 			</div>
 		</div>

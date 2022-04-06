@@ -14,8 +14,7 @@ export const linkResolver = (doc) => {
 	else if (doc.type === 'about_page') return '/about';
 	else if (doc.type === 'contact_page') return '/contact';
 	else if (doc.type === 'gallery_page') return '/gallery';
-	else if (doc.type === 'portfolio_page')
-		return `/wedding-portfolio/${doc.uid}`;
+	else if (doc.type === 'portfolio_page') return `/portfolio/${doc.uid}`;
 	else if (doc.type === 'portfolios_page') return `/portfolio`;
 	else if (doc.type === 'service_page') return `/${doc.uid}`;
 	else if (doc.type === 'services_page') return '/wedding-photography-services';
@@ -30,7 +29,7 @@ export const hrefResolver = (doc) => {
 	else if (doc.type === 'about_page') return '/about';
 	else if (doc.type === 'contact_page') return '/contact';
 	else if (doc.type === 'gallery_page') return '/gallery';
-	else if (doc.type === 'portfolio_page') return `/wedding-portfolio/[slug]`;
+	else if (doc.type === 'portfolio_page') return `/portfolio/[slug]`;
 	else if (doc.type === 'portfolios_page') return `/portfolio`;
 	else if (doc.type === 'service_page') return `/[slug]`;
 	else if (doc.type === 'services_page') return '/wedding-photography-services';

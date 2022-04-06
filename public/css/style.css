@@ -58,6 +58,7 @@ h6 {
 
 h1 {
 	font-size: 40px;
+	line-height: 34px;
 }
 
 h2 {
@@ -1512,6 +1513,7 @@ td {
 .dorothea-photos .dorothea-photo-item {
 	position: relative;
 	margin-bottom: 30px;
+	cursor: zoom-in;
 }
 .dorothea-photos .dorothea-photo-item:after {
 	position: absolute;
