@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import lozad from 'lozad';
 import { Client } from '../utils/prismicHelpers';
+import PrismicClient from '../utils/prismicClient';
+import gql from 'graphql-tag';
 import { SliceZone } from '../slices';
 import SEO from '../components/seo/SEO';
 import BlogsSection from '../components/blog/BlogsSection';
@@ -32,10 +34,25 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 	const doc =
 		(await client.getSingle('about_page', ref ? { ref } : null)) || {};
 
-	// const blogPosts = await client.query(
-	// 	Prismic.Predicates.at('document.type', 'blog_post'),
-	// 	{ pageSize: 6, orderings: '[my.blog_post.published_date desc]' }
-	// );
+	const pClient = PrismicClient;
+	const blogPosts = await pClient.query({
+		query: gql`
+			query {
+				allBlog_posts(sortBy: published_date_DESC, first: 3) {
+					edges {
+						node {
+							title
+							featured_image
+							published_date
+							_meta {
+								uid
+							}
+						}
+					}
+				}
+			}
+		`,
+	});
 
 	if (doc.id == undefined) {
 		return {
@@ -47,7 +64,7 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 	return {
 		props: {
 			doc,
-			// blogPosts,
+			blogPosts,
 			preview,
 		},
 		revalidate: 60,
