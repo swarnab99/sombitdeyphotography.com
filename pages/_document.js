@@ -15,8 +15,6 @@ class MyDocument extends Document {
 					<link rel='stylesheet' href='/css/animate.css' />
 					<link rel='stylesheet' href='/css/themify-icons.css' />
 					<link rel='stylesheet' href='/css/bootstrap.css' />
-					{/* <link rel='stylesheet' href='/css/flexslider.css' /> */}
-					{/* <link rel='stylesheet' href='css/fancybox.min.css' /> */}
 					<link rel='stylesheet' href='/css/style.css' />
 
 					{/* ===== FONT ===== */}
@@ -49,14 +47,14 @@ class MyDocument extends Document {
 					<meta name='theme-color' content='#000000' />
 
 					{/* SCRIPTS */}
-					{/* <script
+					<script
 						async
 						defer
 						src={`https://static.cdn.prismic.io/prismic.js?new=true&repo=${process.env.PRISMIC_ID}`}></script>
 					<script
 						defer
 						data-domain={`${process.env.PRISMIC_ID}.com`}
-						src='https://plausible.io/js/plausible.js'></script> */}
+						src='https://plausible.io/js/plausible.js'></script>
 				</Head>
 				<body>
 					<Main />

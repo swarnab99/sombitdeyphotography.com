@@ -49,7 +49,7 @@ const Footer = () => {
 					<img
 						src='https://images.prismic.io/sombitdeyphotography/402d0fec-d1e0-4b6c-bc64-a5660a798e71_SDP-Logo2.png?auto=compress,format'
 						className='logo-row'
-						alt=''
+						alt='logo'
 					/>
 				</div>
 				<div className='credits-row'>
