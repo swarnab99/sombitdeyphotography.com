@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
-import { RichText } from 'prismic-reactjs';
+import Link from 'next/link';
 import FsLightbox from 'fslightbox-react';
 
 const GallerySection = ({ slice }) => {
@@ -53,6 +53,17 @@ const GallerySection = ({ slice }) => {
 								/>
 							))}
 						</div>
+					</div>
+				</div>
+				<div className='row'>
+					<div className='col-md-12 text-right'>
+						{slice?.items?.length < 13 && (
+							<Link href='/gallery'>
+								<a className='underline-text'>
+									All Photos <i className='ti-arrow-right'></i>
+								</a>
+							</Link>
+						)}
 					</div>
 				</div>
 			</div>

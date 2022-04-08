@@ -64,6 +64,7 @@ export async function getStaticProps({
 					edges {
 						node {
 							title
+							description
 							featured_image
 							published_date
 							_meta {

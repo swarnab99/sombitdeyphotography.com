@@ -27,11 +27,12 @@ const BlogsSection = ({ blogPosts }) => {
 };
 
 const BlogItem = ({ data }) => {
-	const { title, featured_image, published_date, _meta } = data.node;
+	const { title, description, featured_image, published_date, _meta } =
+		data.node;
 	/* ===== COUNT & UPDATE NO. OF VIEWS ===== */
 	const [views, setViews] = useState(0);
 	useEffect(() => {
-		countapi.get('sombitdeyphotography.com', _meta?.uid).then((result) => {
+		countapi.get(`${process.env.PRISMIC_ID}.com`, _meta?.uid).then((result) => {
 			result?.value && setViews(result.value);
 		});
 	}, [_meta?.uid]);
@@ -58,10 +59,7 @@ const BlogItem = ({ data }) => {
 							<a>{title[0]?.text}</a>
 						</Link>
 					</h3>
-					<p>
-						Fusce suscipit ante miss helena the ulamcore risus nis cursu drana
-						in hiverra ante nulla vel..
-					</p>
+					<p>{description[0]?.text}</p>
 					<Link href={`/blog/${_meta?.uid}`}>
 						<a className='underline-text'>
 							Read more <i className='ti-arrow-right'></i>

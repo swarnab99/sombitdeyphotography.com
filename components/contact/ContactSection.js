@@ -1,31 +1,21 @@
-const ContactSection = () => {
+import { RichText } from 'prismic-reactjs';
+import { CustomLink } from '../../utils/prismicHelpers';
+
+const ContactSection = ({ slice }) => {
+	// console.log(slice);
+	const { subheading, heading, details } = slice.primary;
 	return (
 		<div className='section-banner'>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-12 text-center'>
-						<span className='dorothea-heading-meta'>Location</span>
-						<h2 className='dorothea-heading'>Contact Us</h2>
+						<span className='dorothea-heading-meta'>{subheading[0]?.text}</span>
+						<h2 className='dorothea-heading'>{heading[0]?.text}</h2>
 					</div>
 				</div>
 				<div className='row mb-30'>
 					<div className='col-md-6 offset-md-3 text-center mb-30'>
-						<h3 className='dorothea-contact-heading'>
-							Im available for worldwide orders.
-						</h3>
-						<p>
-							Qualamy nisl sodales sit amet sapien the placera sodalesion
-							orciter. Vivamus ne magna.
-						</p>
-						<p>
-							<b>Phone:</b> +1 650-444-0000
-						</p>
-						<p>
-							<b>Email:</b> info@dorothea.com
-						</p>
-						<p>
-							<b>Address:</b> 10 N 1st St, San Jose, CA 95113, USA
-						</p>
+						<RichText render={details} serializeHyperlink={CustomLink} />
 					</div>
 
 					<div className='col-md-6 text-center offset-md-3'>

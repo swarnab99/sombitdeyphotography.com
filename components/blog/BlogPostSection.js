@@ -15,7 +15,7 @@ const BlogPostSection = ({ blogPost }) => {
 	/* ===== COUNT & UPDATE NO. OF VIEWS ===== */
 	const [views, setViews] = useState(0);
 	useEffect(() => {
-		countapi.hit('theweddart.com', uid).then((result) => {
+		countapi.hit(`${process.env.PRISMIC_ID}.com`, uid).then((result) => {
 			result?.value && setViews(result.value);
 		});
 	}, [uid]);
@@ -26,6 +26,7 @@ const BlogPostSection = ({ blogPost }) => {
 				<div className='row'>
 					<div className='col-md-12 mb-3'>
 						<h1 className='dorothea-post-heading mb-1'>{title[0]?.text}</h1>
+						<p>{description[0]?.text}</p>
 						<span className='dorothea-heading-meta'>
 							{dayjs(published_date).format('DD MMM, YYYY')} | {views} Views
 						</span>
