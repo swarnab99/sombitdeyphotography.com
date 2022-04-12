@@ -125,9 +125,11 @@ const GalleryItem = ({ data, index, openLightboxOnSlide }) => {
 				className='d-block dorothea-photo-item position-relative'
 				onClick={() => openLightboxOnSlide(index + 1)}>
 				<img src={image?.url} alt={image?.alt} className='img-fluid' />
-				<span className='video_icon'>
-					<i className='ti-video-camera text-white'></i>
-				</span>
+				{video_link.url && (
+					<span className='video_icon'>
+						<i className='ti-video-camera text-white'></i>
+					</span>
+				)}
 			</div>
 
 			<style jsx>{`
