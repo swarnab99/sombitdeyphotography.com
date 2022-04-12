@@ -2276,3 +2276,7 @@ ul.social-network li {
 		float: none;
 	}
 }
+
+iframe {
+	border: none !important;
+}

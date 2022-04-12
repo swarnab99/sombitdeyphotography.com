@@ -76,6 +76,11 @@ const Menu = ({ menuOpen, closeMenu }) => {
 						active={router.pathname == '/services'}
 					/>
 					<LinkItem
+						text='Films'
+						link='/films'
+						active={router.pathname == '/films'}
+					/>
+					<LinkItem
 						text='Gallery'
 						link='/gallery'
 						active={router.pathname == '/gallery'}
