@@ -118,7 +118,7 @@ const GallerySection = ({ slice }) => {
 };
 
 const GalleryItem = ({ data, index, openLightboxOnSlide }) => {
-	const { image } = data;
+	const { image, video_link } = data;
 	return (
 		<div className='col-12 col-md-6 col-lg-4'>
 			<div
