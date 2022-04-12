@@ -33,7 +33,7 @@ const Header = () => {
 							<Link href='/'>
 								<a className='dorothea-logo'>
 									<img
-										src='https://images.prismic.io/sombitdeyphotography/1f4d4946-6a1a-4973-b189-27947ff39746_logo.png?auto=compress,format'
+										src='https://images.prismic.io/sombitdeyphotography/a6cb1309-5acb-4e72-9adb-db13101e88ef_SDP-Logo.png?auto=compress,format?w=100'
 										alt='Sombit Dey Photography Logo'
 									/>
 								</a>

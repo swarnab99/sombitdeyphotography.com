@@ -47,7 +47,7 @@ const Footer = () => {
 				</ul>
 				<div>
 					<img
-						src='https://images.prismic.io/sombitdeyphotography/402d0fec-d1e0-4b6c-bc64-a5660a798e71_SDP-Logo2.png?auto=compress,format'
+						src='https://images.prismic.io/sombitdeyphotography/a6cb1309-5acb-4e72-9adb-db13101e88ef_SDP-Logo.png?auto=compress,format?w=200'
 						className='logo-row'
 						alt='logo'
 					/>

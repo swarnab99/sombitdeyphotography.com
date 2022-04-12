@@ -209,9 +209,10 @@ button,
 	margin-top: 15px;
 	font-size: 16px;
 	letter-spacing: 0px;
-	border-radius: 30px;
+	border-radius: 30px !important;
 	cursor: pointer;
 	border: 1px solid #ffffff7d;
+	outline: none !important;
 }
 input[type='submit']:hover,
 input[type='reset']:hover,
@@ -219,6 +220,10 @@ input[type='button']:hover,
 button:hover {
 	background-color: #101010;
 	color: #fff;
+}
+button.active {
+	color: #fff;
+	border-color: #fff;
 }
 
 #message {
@@ -476,7 +481,7 @@ td {
 	font-weight: 400;
 }
 .dorothea-header .dorothea-logo img {
-	width: 180px;
+	width: 80px;
 }
 .dorothea-header .social li {
 	display: inline-block;
@@ -2177,9 +2182,9 @@ a.underline-text:hover {
 	text-decoration: underline;
 }
 #dorothea-footer .logo-row {
-	width: 250px;
+	width: 115px;
 	text-align: center;
-	margin: 100px 0 20px 0;
+	margin: 60px 0 20px 0;
 }
 #dorothea-footer .logo-row img {
 	width: 150px;
