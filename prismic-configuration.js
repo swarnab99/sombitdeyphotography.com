@@ -14,10 +14,13 @@ export const linkResolver = (doc) => {
 	else if (doc.type === 'about_page') return '/about';
 	else if (doc.type === 'contact_page') return '/contact';
 	else if (doc.type === 'gallery_page') return '/gallery';
+	else if (doc.type === 'films_page') return '/films';
 	else if (doc.type === 'portfolio_page') return `/portfolio/${doc.uid}`;
 	else if (doc.type === 'portfolios_page') return `/portfolio`;
 	else if (doc.type === 'service_page') return `/${doc.uid}`;
-	else if (doc.type === 'services_page') return '/wedding-photography-services';
+	else if (doc.type === 'services_page') return '/services';
+	else if (doc.type === 'reviews_page') return '/reviews';
+	else if (doc.type === 'blogs_page') return '/blog';
 	else if (doc.type === 'blog_post') return `/blog/${doc.uid}`;
 
 	return '/';
@@ -29,10 +32,13 @@ export const hrefResolver = (doc) => {
 	else if (doc.type === 'about_page') return '/about';
 	else if (doc.type === 'contact_page') return '/contact';
 	else if (doc.type === 'gallery_page') return '/gallery';
+	else if (doc.type === 'films_page') return '/films';
 	else if (doc.type === 'portfolio_page') return `/portfolio/[slug]`;
 	else if (doc.type === 'portfolios_page') return `/portfolio`;
 	else if (doc.type === 'service_page') return `/[slug]`;
-	else if (doc.type === 'services_page') return '/wedding-photography-services';
+	else if (doc.type === 'services_page') return '/services';
+	else if (doc.type === 'reviews_page') return '/reviews';
+	else if (doc.type === 'blogs_page') return '/blog';
 	else if (doc.type === 'blog_post') return `/blog/[slug]`;
 
 	return '/';
