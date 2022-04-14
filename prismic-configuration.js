@@ -20,7 +20,7 @@ export const linkResolver = (doc) => {
 	else if (doc.type === 'service_page') return `/${doc.uid}`;
 	else if (doc.type === 'services_page') return '/services';
 	else if (doc.type === 'reviews_page') return '/reviews';
-	else if (doc.type === 'blogs_page') return '/blog';
+	else if (doc.type === 'blog_page') return '/blog';
 	else if (doc.type === 'blog_post') return `/blog/${doc.uid}`;
 
 	return '/';
@@ -38,7 +38,7 @@ export const hrefResolver = (doc) => {
 	else if (doc.type === 'service_page') return `/[slug]`;
 	else if (doc.type === 'services_page') return '/services';
 	else if (doc.type === 'reviews_page') return '/reviews';
-	else if (doc.type === 'blogs_page') return '/blog';
+	else if (doc.type === 'blog_page') return '/blog';
 	else if (doc.type === 'blog_post') return `/blog/[slug]`;
 
 	return '/';
