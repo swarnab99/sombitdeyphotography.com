@@ -5,7 +5,7 @@ import lozad from 'lozad';
 import FsLightbox from 'fslightbox-react';
 
 const GallerySection = ({ slice }) => {
-	const { heading, subheading } = slice?.primary;
+	const { heading, subheading, hide_filter } = slice?.primary;
 
 	const [activeCategory, setActiveCategory] = useState('All');
 	const [sources, setSources] = useState([]);
@@ -42,14 +42,7 @@ const GallerySection = ({ slice }) => {
 
 	// console.log(sources);
 
-	const categoryOptions = [
-		'All',
-		'Wedding',
-		'Pre Wedding',
-		'Candid Wedding',
-		'Kids',
-		'Portrait',
-	];
+	const categoryOptions = ['All', 'Wedding', 'Pre Wedding', 'Kids'];
 	return (
 		<div className='section-padding'>
 			<div className='container'>
@@ -59,25 +52,27 @@ const GallerySection = ({ slice }) => {
 						<h2 className='dorothea-heading mb-1'>{heading[0]?.text}</h2>
 					</div>
 				</div>
-				<div className='row mb-5'>
-					<div className='col-12'>
-						{slice?.items[slice?.items.length - 1].category && (
-							<div className='portfolio-menu text-center'>
-								{categoryOptions.map((option, index) => (
-									<button
-										onClick={() => setActiveCategory(option)}
-										key={index}
-										className={`btn-sm mr-2 ${
-											activeCategory == option ? 'active' : ''
-										}`}>
-										{option}
-									</button>
-								))}
-							</div>
-						)}
+				{!hide_filter && (
+					<div className='row'>
+						<div className='col-12'>
+							{slice?.items[slice?.items.length - 1].category && (
+								<div className='portfolio-menu text-center'>
+									{categoryOptions.map((option, index) => (
+										<button
+											onClick={() => setActiveCategory(option)}
+											key={index}
+											className={`btn-sm mr-2 ${
+												activeCategory == option ? 'active' : ''
+											}`}>
+											{option}
+										</button>
+									))}
+								</div>
+							)}
+						</div>
 					</div>
-				</div>
-				<div className='row align-items-stretch dorothea-photos'>
+				)}
+				<div className='row align-items-stretch dorothea-photos mt-5'>
 					<div className='col-12'>
 						<div className='row align-items-stretch'>
 							{slice?.items?.map(

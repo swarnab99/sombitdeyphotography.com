@@ -172,6 +172,7 @@ input[type='email'],
 input[type='text'],
 input[type='file'],
 input[type='date'],
+select,
 textarea {
 	max-width: 100%;
 	margin-bottom: 15px;
@@ -244,10 +245,7 @@ input[type='radio'],
 input[type='checkbox'] {
 	display: inline;
 }
-select {
-	padding: 10px;
-	border-radius: 5px;
-}
+
 .form-control {
 	max-width: 100%;
 	margin-bottom: 15px;
@@ -2124,7 +2122,6 @@ a.underline-text:hover {
 /* ======= Footer style ======= */
 #dorothea-footer {
 	background: #000;
-	float: left;
 	width: 100%;
 	position: relative;
 	padding-left: 15px;
