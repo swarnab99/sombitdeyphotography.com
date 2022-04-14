@@ -71,9 +71,9 @@ const Menu = ({ menuOpen, closeMenu }) => {
 						active={router.pathname == '/about'}
 					/>
 					<LinkItem
-						text='Services'
-						link='/services'
-						active={router.pathname == '/services'}
+						text='Portfolio'
+						link='/portfolio'
+						active={router.pathname == '/portfolio'}
 					/>
 					<LinkItem
 						text='Films'
@@ -86,9 +86,9 @@ const Menu = ({ menuOpen, closeMenu }) => {
 						active={router.pathname == '/gallery'}
 					/>
 					<LinkItem
-						text='Portfolio'
-						link='/portfolio'
-						active={router.pathname == '/portfolio'}
+						text='Services'
+						link='/services'
+						active={router.pathname == '/services'}
 					/>
 					<LinkItem
 						text='Reviews'

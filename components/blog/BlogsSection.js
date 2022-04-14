@@ -13,7 +13,7 @@ const BlogsSection = ({ blogPosts }) => {
 				<div className='row'>
 					<div className='col-md-12 text-center'>
 						<span className='dorothea-heading-meta'>Read More</span>
-						<h2 className='dorothea-heading'>News &amp; Blog</h2>
+						<h2 className='dorothea-heading'>Blog Posts</h2>
 					</div>
 				</div>
 				<div className='row'>
