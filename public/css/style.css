@@ -2277,3 +2277,6 @@ ul.social-network li {
 iframe {
 	border: none !important;
 }
+.post-block p {
+	font-weight: 600;
+}
