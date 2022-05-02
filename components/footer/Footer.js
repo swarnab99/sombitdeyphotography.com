@@ -28,29 +28,29 @@ const Footer = () => {
 						</p>
 						<ul className='social-network'>
 							<li>
-								<a href='#'>
+								<a href='https://www.facebook.com/weddingsbysombiitdeyy'>
 									<i className='ti-facebook'></i>
 								</a>
 							</li>
 							<li>
-								<a href='#'>
-									<i className='ti-twitter'></i>
-								</a>
-							</li>
-							<li>
-								<a href='#'>
+								<a href='https://www.instagram.com/sombitdeyphotography/'>
 									<i className='ti-instagram'></i>
 								</a>
 							</li>
 							<li>
-								<a href='#'>
+								<a href='https://twitter.com/shombit_dey'>
+									<i className='ti-twitter'></i>
+								</a>
+							</li>
+							<li>
+								<a href='https://www.youtube.com/c/SombitDey'>
 									<i className='ti-youtube'></i>
 								</a>
 							</li>
 						</ul>
 						<div>
 							<img
-								src='https://images.prismic.io/sombitdeyphotography/a6cb1309-5acb-4e72-9adb-db13101e88ef_SDP-Logo.png?auto=compress,format?w=200'
+								src='https://images.prismic.io/sombitdeyphotography/b92c0384-32a4-42b3-895a-5e02ad9bf88e_sdp-new-favicon.png'
 								className='logo-row'
 								alt='logo'
 							/>

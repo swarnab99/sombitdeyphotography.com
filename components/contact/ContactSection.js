@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Airtable from 'airtable';
 import { RichText } from 'prismic-reactjs';
-import { CustomLink } from '../../utils/prismicHelpers';
+import { linkResolver } from '../../prismic-configuration';
 
 const base = new Airtable({
 	apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
@@ -85,7 +85,7 @@ const ContactSection = ({ slice }) => {
 				</div>
 				<div className='row mb-30'>
 					<div className='col-md-6 offset-md-3 text-center mb-30'>
-						<RichText render={details} serializeHyperlink={CustomLink} />
+						<RichText render={details} serializeHyperlink={linkResolver} />
 					</div>
 
 					<div className='col-md-6 text-center offset-md-3'>

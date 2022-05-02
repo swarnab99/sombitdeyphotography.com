@@ -12,7 +12,7 @@ const CtaFormSection = ({ slice }) => {
 	const [formData, setFormData] = useState({
 		name: '',
 		phone: '',
-		type: '',
+		location: '',
 		date: '',
 	});
 	const [loading, setLoading] = useState(false);
@@ -36,9 +36,9 @@ const CtaFormSection = ({ slice }) => {
 				{
 					fields: {
 						Name: formData.name,
-						'Type of shoot': formData.type,
-						Date: formData.date,
 						Phone: formData.phone,
+						Location: formData.location,
+						Date: formData.date,
 
 						Source: location.href,
 						Status: 'Todo',
@@ -51,7 +51,7 @@ const CtaFormSection = ({ slice }) => {
 			setFormData({
 				name: '',
 				phone: '',
-				type: '',
+				location: '',
 				date: '',
 			});
 			setSuccess(true);
@@ -99,17 +99,17 @@ const CtaFormSection = ({ slice }) => {
 								type='text'
 								value={formData.phone}
 								onChange={handleChange}
-								placeholder='Your Phone *'
+								placeholder='Your Phone No. *'
 								required
 							/>
 						</div>
 						<div className='col-md-6 form-group'>
 							<input
-								name='type'
+								name='location'
 								type='text'
-								value={formData.type}
+								value={formData.location}
 								onChange={handleChange}
-								placeholder='Type of Shoot *'
+								placeholder='Event Location *'
 								required
 							/>
 						</div>

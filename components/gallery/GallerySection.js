@@ -42,7 +42,14 @@ const GallerySection = ({ slice }) => {
 
 	// console.log(sources);
 
-	const categoryOptions = ['All', 'Wedding', 'Pre Wedding', 'Kids'];
+	const categoryOptions = [
+		'All',
+		'Wedding',
+		'Pre Wedding',
+		'Engagement',
+		'Reception',
+		'Kids',
+	];
 	return (
 		<div className='section-padding'>
 			<div className='container'>

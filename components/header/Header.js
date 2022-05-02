@@ -29,18 +29,18 @@ const Header = () => {
 			<header id='header' className='dorothea-header'>
 				<div className='container'>
 					<div className='row align-items-center'>
-						<div className='col-6 col-md-6 dorothea-logo-wrap'>
+						<div className='col-10 col-lg-6  dorothea-logo-wrap'>
 							<Link href='/'>
 								<a className='dorothea-logo'>
 									<img
-										src='https://images.prismic.io/sombitdeyphotography/a6cb1309-5acb-4e72-9adb-db13101e88ef_SDP-Logo.png?auto=compress,format?w=100'
+										src='https://images.prismic.io/sombitdeyphotography/de76d2bd-74b9-46d9-a7d2-d01983ac956c_sdp-new-logo-2.png?auto=compress,format'
 										alt='Sombit Dey Photography Logo'
 									/>
 								</a>
 							</Link>
 						</div>
 
-						<div className='col-6 col-md-6 text-right dorothea-menu-burger-wrap'>
+						<div className='col-2 col-lg-6 text-right dorothea-menu-burger-wrap'>
 							<span
 								onClick={() => setMenuOpen(!menuOpen)}
 								className={`dorothea-nav-toggle ann-js-dorothea-nav-toggle ${

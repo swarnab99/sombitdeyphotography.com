@@ -1,13 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import { RichText } from 'prismic-reactjs';
-import { CustomLink, DocLink } from '../../utils/prismicHelpers';
+import { DocLink } from '../../utils/prismicHelpers';
+import { linkResolver } from '../../prismic-configuration';
 
 const AboutSection = ({ slice }) => {
-	console.log(slice);
-	const { subheading, heading, description, image, button_text, button_link } =
-		slice?.primary;
+	// console.log(slice);
+	const {
+		subheading,
+		heading,
+		description,
+		image,
+		button_text,
+		button_link,
+		no_padding,
+	} = slice?.primary;
 	return (
-		<div className='section-banner'>
+		<div className={`section-banner ${no_padding ? 'p-0' : ''}`}>
 			<div className='container'>
 				{subheading[0]?.text && (
 					<div className='row'>
@@ -31,7 +39,7 @@ const AboutSection = ({ slice }) => {
 				<div className='row'>
 					<div className='col-md-12'>
 						<div>
-							<RichText render={description} serializeHyperlink={CustomLink} />
+							<RichText render={description} linkResolver={linkResolver} />
 						</div>
 						<div>
 							{button_link?.id && (

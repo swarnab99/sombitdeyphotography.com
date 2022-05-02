@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { RichText } from 'prismic-reactjs';
+import { linkResolver } from '../../prismic-configuration';
 
 const ReviewsSection = ({ slice }) => {
 	// console.log(slice);
@@ -40,7 +41,7 @@ const ReviewItem = ({ data }) => {
 					<img className='avatar photo' src={image?.url} alt={image?.alt} />
 					<h3 className='name mb-2'>{title[0]?.text}</h3>
 				</div>
-				<RichText render={details} />
+				<RichText render={details} linkResolver={linkResolver} />
 			</div>
 		</li>
 	);

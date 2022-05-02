@@ -1,6 +1,30 @@
+import { useEffect, useState } from 'react';
+
 const HeroSection = ({ slice }) => {
 	// console.log(slice);
-	const { heading, title, image, phone_number, email_id } = slice?.primary;
+	const { heading, title, phone_number, email_id } = slice?.primary;
+
+	const [displayImg, setDisplayImg] = useState(
+		slice?.items[0]?.background_image?.url
+	);
+
+	const arr = Array.from(Array(slice?.items.length).keys());
+
+	let count = 0;
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setDisplayImg(slice?.items[count]?.background_image?.url);
+			count++;
+			if (count > arr.length - 1) {
+				count = 0;
+			}
+		}, 3000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	}, []);
+
 	return (
 		<div id='home'>
 			<div className='dorothea-hero js-fullheight'>
@@ -9,7 +33,8 @@ const HeroSection = ({ slice }) => {
 						<li
 							className='bg-fixed'
 							style={{
-								backgroundImage: `url(${image?.url})`,
+								backgroundImage: `url(${displayImg})`,
+								transition: 'linear .5s',
 							}}>
 							<div className='overlay'></div>
 							<div className='container'>
