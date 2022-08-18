@@ -2252,3 +2252,9 @@ iframe {
 .post-block p {
 	font-weight: 600;
 }
+
+
+/* custom css  */
+.box .post-title h4{
+	font-size: 22px !important;
+}
