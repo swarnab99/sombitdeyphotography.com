@@ -6,16 +6,13 @@ const TextBoxFeaturesSection = ({ slice }) => {
   console.log(slice);
   return (
     <>
-      <div
-        className="container"
-        style={{ paddingTop: "100px", paddingBottom: "100px" }}
-      >
+      <div className="container section-padding" style={{ overflow: "hidden" }}>
         <div className="row">
           <div className="wrap-text">
             <RichText render={slice?.primary?.heading} />
             <RichText render={slice?.primary?.description1} />
           </div>
-          <div className="row">
+          <div className="row px-4">
             {slice?.items?.map((item, index) => (
               <TextBoxItem key={index} data={item} />
             ))}
