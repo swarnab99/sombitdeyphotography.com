@@ -30,10 +30,7 @@ const SecondaryHeroSection = ({ slice }) => {
                     <span className="frame-1"></span>
                     <span className="frame-2"></span>
                   </div>
-                  <div
-                    className="mx-auto mt-4 text-center"
-                    style={{ maxWidth: "500px" }}
-                  >
+                  <div className="col-md-10 col-lg-8 mx-auto mt-4 text-center">
                     <RichText
                       render={description1}
                       linkResolver={linkResolver}
