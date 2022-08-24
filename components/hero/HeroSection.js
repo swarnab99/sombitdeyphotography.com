@@ -46,7 +46,7 @@ const HeroSection = ({ slice }) => {
                   <div className="col-md-12 js-fullheight slider-text">
                     <div className="slider-text-inner">
                       <div className="mx-auto frame-inner">
-                        <h2>{heading[0]?.text}</h2>
+                        <h1>{heading[0]?.text}</h1>
                         <h6>{title[0]?.text}</h6>
                         <span className="frame-1"></span>
                         <span className="frame-2"></span>
