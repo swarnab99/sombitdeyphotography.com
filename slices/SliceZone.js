@@ -10,6 +10,7 @@ import {
   ReviewsSection,
   GallerySection,
   TextBoxFeaturesSection,
+  IconFeaturesSection,
 } from "./";
 
 const SliceZone = ({ sliceZone }) => (
@@ -40,6 +41,8 @@ const SliceZone = ({ sliceZone }) => (
           return (
             <TextBoxFeaturesSection slice={slice} key={`slice-${index}`} />
           );
+        case "icon_features":
+          return <IconFeaturesSection slice={slice} key={`slice-${index}`} />;
         default:
           return null;
       }

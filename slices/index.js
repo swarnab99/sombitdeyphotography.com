@@ -9,5 +9,6 @@ export { default as ContactSection } from "../components/contact/ContactSection"
 export { default as ReviewsSection } from "../components/review/ReviewsSection";
 export { default as GallerySection } from "../components/gallery/GallerySection";
 export { default as TextBoxFeaturesSection } from "../components/feature/TextBoxFeaturesSection";
+export { default as IconFeaturesSection } from "../components/feature/IconFeaturesSection";
 
 export { default as SliceZone } from "./SliceZone";
