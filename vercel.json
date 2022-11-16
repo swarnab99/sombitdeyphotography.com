@@ -3,6 +3,10 @@
 		{
 			"source": "/wedding-photography",
 			"destination": "/bengali-wedding-photography"
+		},
+		{
+			"source": "/kids-photography",
+			"destination": "/baby-photography-kolkata"
 		}
 	]
 }
