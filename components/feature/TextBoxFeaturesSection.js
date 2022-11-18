@@ -3,7 +3,7 @@ import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../prismic-configuration";
 
 const TextBoxFeaturesSection = ({ slice }) => {
-  console.log(slice);
+  // console.log(slice);
   return (
     <>
       <div className="container section-padding" style={{ overflow: "hidden" }}>
@@ -36,7 +36,7 @@ const TextBoxItem = ({ data }) => {
   // console.log(data);
   const { title1, details } = data;
   return (
-    <div className="col-12 col-md-6 mt-5">
+    <div className="col-12 col-md-6 mt-5 mx-auto">
       <div className="box bg-inverse h-100">
         <div className="meta mb-10"></div>
         <div className="post-title">

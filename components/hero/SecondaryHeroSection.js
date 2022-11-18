@@ -21,7 +21,7 @@ const SecondaryHeroSection = ({ slice }) => {
               <div className="col-md-12 js-fullheight slider-text">
                 <div className="slider-text-inner">
                   <div className="mx-auto frame-inner">
-                    <h1 className="">{heading[0]?.text}</h1>
+                    <h1 className="title">{heading[0]?.text}</h1>
                     <Link href="/">
                       <a>
                         <h6>Home</h6>
@@ -58,6 +58,19 @@ const SecondaryHeroSection = ({ slice }) => {
           top: 0;
           position: absolute;
           background: rgb(0 0 0 / 40%);
+        }
+        .slider-text-inner {
+          padding-top: 45px !important;
+        }
+        @media (min-width: 767px) {
+          .title {
+            font-size: 35px;
+          }
+        }
+        @media (max-width: 767px) {
+          .title {
+            font-size: 28px;
+          }
         }
       `}</style>
     </div>
