@@ -1,181 +1,195 @@
-import { useState } from 'react';
-import Airtable from 'airtable';
+import { useState } from "react";
+import Airtable from "airtable";
 
 const base = new Airtable({
-	apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
 }).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID);
 
 const CtaFormSection = ({ slice }) => {
-	// console.log(slice);
-	const { heading, subheading, background_image } = slice?.primary;
+  // console.log(slice);
+  const { heading, subheading, background_image } = slice?.primary;
 
-	const [formData, setFormData] = useState({
-		name: '',
-		phone: '',
-		location: '',
-		date: '',
-	});
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(null);
-	const [success, setSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    location: "",
+    date: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
-	const handleChange = (e) => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		});
-		setError(null);
-		setSuccess(false);
-	};
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+    setError(null);
+    setSuccess(false);
+  };
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		setLoading(true);
-		try {
-			const data = await base('Queries').create([
-				{
-					fields: {
-						Name: formData.name,
-						Phone: formData.phone,
-						Location: formData.location,
-						Date: formData.date,
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const data = await base("Queries").create([
+        {
+          fields: {
+            Name: formData.name,
+            Phone: formData.phone,
+            Email: formData.email,
+            Location: formData.location,
+            Date: formData.date,
 
-						Source: location.href,
-						Status: 'Todo',
-					},
-				},
-			]);
+            Source: location.href,
+            Status: "Todo",
+          },
+        },
+      ]);
 
-			// console.log(data);
+      // console.log(data);
 
-			setFormData({
-				name: '',
-				phone: '',
-				location: '',
-				date: '',
-			});
-			setSuccess(true);
-			setLoading(false);
-		} catch (error) {
-			setError(error);
-			console.log(error);
-			setLoading(false);
-		}
-	};
-	return (
-		<section
-			style={{
-				backgroundImage: `url(${background_image?.url}) `,
-			}}
-			className='section-padding bg-dark section-overlay position-relative'>
-			<div className='col-md-6 text-center offset-md-3 cta-form'>
-				<h2 className='dorothea-heading mb-0'>{heading[0]?.text}</h2>
-				<p>{subheading[0]?.text}</p>
-				<form onSubmit={handleSubmit} className='contact__form'>
-					<div className='row'>
-						<div className='col-12'>
-							<div
-								className='alert alert-success contact__msg d-none'
-								role='alert'>
-								Your message was sent successfully.
-							</div>
-						</div>
-					</div>
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        location: "",
+        date: "",
+      });
+      setSuccess(true);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      console.log(error);
+      setLoading(false);
+    }
+  };
+  return (
+    <section
+      style={{
+        backgroundImage: `url(${background_image?.url}) `,
+      }}
+      className="section-padding bg-dark section-overlay position-relative"
+    >
+      <div className="col-md-6 text-center offset-md-3 cta-form">
+        <h2 className="dorothea-heading mb-0">{heading[0]?.text}</h2>
+        <p>{subheading[0]?.text}</p>
+        <form onSubmit={handleSubmit} className="contact__form">
+          <div className="row">
+            <div className="col-12">
+              <div
+                className="alert alert-success contact__msg d-none"
+                role="alert"
+              >
+                Your message was sent successfully.
+              </div>
+            </div>
+          </div>
 
-					<div className='row'>
-						<div className='col-md-6 form-group'>
-							<input
-								name='name'
-								type='text'
-								value={formData.name}
-								onChange={handleChange}
-								placeholder='Your Name *'
-								required
-							/>
-						</div>
-						<div className='col-md-6 form-group'>
-							<input
-								name='phone'
-								type='text'
-								value={formData.phone}
-								onChange={handleChange}
-								placeholder='Your Phone No. *'
-								required
-							/>
-						</div>
-						<div className='col-md-6 form-group'>
-							<input
-								name='location'
-								type='text'
-								value={formData.location}
-								onChange={handleChange}
-								placeholder='Event Location *'
-								required
-							/>
-						</div>
-						<div className='col-md-6 form-group'>
-							<input
-								name='date'
-								type='date'
-								value={formData.date}
-								onChange={handleChange}
-								placeholder='Booking Date *'
-								required
-							/>
-						</div>
-						<div className='col-md-12'>
-							<input
-								className='m-0'
-								name='submit'
-								type='submit'
-								value={loading ? 'Sending...' : 'Submit'}
-							/>
-						</div>
-					</div>
+          <div className="row">
+            <div className="col-md-6 form-group">
+              <input
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name *"
+                required
+              />
+            </div>
+            <div className="col-md-6 form-group">
+              <input
+                name="phone"
+                type="text"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Your Phone No. *"
+                required
+              />
+            </div>
+            <div className="col-md-6 form-group">
+              <input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Your Email No."
+              />
+            </div>
+            <div className="col-md-6 form-group">
+              <input
+                name="date"
+                type="date"
+                value={formData.date}
+                onChange={handleChange}
+                placeholder="Booking Date *"
+                required
+              />
+            </div>
+            <div className="col-md-6 mx-auto form-group">
+              <input
+                name="location"
+                type="text"
+                value={formData.location}
+                onChange={handleChange}
+                placeholder="Event Location *"
+                required
+              />
+            </div>
+            <div className="col-md-12">
+              <input
+                className="m-0"
+                name="submit"
+                type="submit"
+                value={loading ? "Sending..." : "Submit"}
+              />
+            </div>
+          </div>
 
-					<footer>
-						{error && (
-							<div className='col-lg-12 col-md-12 col-sm-12 mb-4 mt-5'>
-								<p className='text-danger text-center h2'>{error.message}</p>
-							</div>
-						)}
-						{success && (
-							<div className='col-lg-12 col-md-12 col-sm-12 mb-4 mt-5'>
-								<p className='text-success text-center h2'>
-									Thanks, we will contact you soon.
-								</p>
-							</div>
-						)}
-					</footer>
-				</form>
-			</div>
+          <footer>
+            {error && (
+              <div className="col-lg-12 col-md-12 col-sm-12 mb-4 mt-5">
+                <p className="text-danger text-center h2">{error.message}</p>
+              </div>
+            )}
+            {success && (
+              <div className="col-lg-12 col-md-12 col-sm-12 mb-4 mt-5">
+                <p className="text-success text-center h2">
+                  Thanks, we will contact you soon.
+                </p>
+              </div>
+            )}
+          </footer>
+        </form>
+      </div>
 
-			<style jsx>{`
-				.section-overlay:before {
-					content: '';
-					display: block;
-					position: absolute;
-					top: 0;
-					left: 0;
-					z-index: 1;
-					width: 100%;
-					height: 100%;
-					background: rgba(0, 0, 0, 0.7);
-				}
-				.section-overlay {
-					background-attachment: fixed;
-					background-size: cover;
-					background-repeat: no-repeat;
-					background-position: center center;
-				}
+      <style jsx>{`
+        .section-overlay:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+        }
+        .section-overlay {
+          background-attachment: fixed;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
 
-				.cta-form {
-					position: relative;
-					z-index: 2;
-				}
-			`}</style>
-		</section>
-	);
+        .cta-form {
+          position: relative;
+          z-index: 2;
+        }
+      `}</style>
+    </section>
+  );
 };
 
 export default CtaFormSection;

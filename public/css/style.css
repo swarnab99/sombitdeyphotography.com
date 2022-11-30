@@ -120,6 +120,9 @@ b,
 strong {
 	color: #fff;
 }
+a > strong {
+	color: #03a9f4 !important;
+}
 /* form element */
 /* text field */
 button,
