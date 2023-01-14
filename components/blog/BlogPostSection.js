@@ -54,9 +54,6 @@ const DetailsBox = ({ postBlock }) => {
   // console.log(postBlock);
   return (
     <div className="post-block">
-      <ul>
-        <li>Lorem ipsum dolor sit amet.</li>
-      </ul>
       <RichText
         render={postBlock?.primary?.details}
         linkResolver={linkResolver}
