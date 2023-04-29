@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../prismic-configuration";
 import dayjs from "dayjs";
 dayjs().format();
-import countapi from "countapi-js";
+// import countapi from "countapi-js";
 
 const BlogPostSection = ({ blogPost }) => {
   // console.log(blogPost);
@@ -13,12 +13,12 @@ const BlogPostSection = ({ blogPost }) => {
     blogPost?.data;
 
   /* ===== COUNT & UPDATE NO. OF VIEWS ===== */
-  const [views, setViews] = useState(0);
-  useEffect(() => {
-    countapi.hit(`${process.env.PRISMIC_ID}.com`, uid).then((result) => {
-      result?.value && setViews(result.value);
-    });
-  }, [uid]);
+  // const [views, setViews] = useState(0);
+  // useEffect(() => {
+  //   countapi.hit(`${process.env.PRISMIC_ID}.com`, uid).then((result) => {
+  //     result?.value && setViews(result.value);
+  //   });
+  // }, [uid]);
   /* ===== END ===== */
   return (
     <div className="section-banner">
@@ -27,9 +27,9 @@ const BlogPostSection = ({ blogPost }) => {
           <div className="col-md-12 mb-3">
             <h1 className="dorothea-post-heading mb-1">{title[0]?.text}</h1>
             <p>{description[0]?.text}</p>
-            <span className="dorothea-heading-meta">
+            {/* <span className="dorothea-heading-meta">
               {dayjs(published_date).format("DD MMM, YYYY")} | {views} Views
-            </span>
+            </span> */}
           </div>
           <div className="col-md-12 image-content ">
             <figure className="rounded">
